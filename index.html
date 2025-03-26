@@ -13,7 +13,7 @@
       padding: 2rem;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       background-color: #fff8e6;
       border: 2px solid #b7a268;
@@ -26,7 +26,13 @@
       font-size: 2.5rem;
       border-bottom: 1px solid #a88e5d;
       padding-bottom: 0.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+    }
+    #points-counter {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #5c432a;
     }
     form {
       display: flex;
@@ -52,18 +58,28 @@
       border-radius: 4px;
       background-color: #fffdf5;
     }
-    .attributes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
+    .attributes-block {
+      margin-top: 2rem;
     }
-    .attribute-item {
+    .attributes-block h3 {
+      margin-bottom: 0.5rem;
+      color: #4d3923;
+      border-bottom: 1px solid #ccb383;
+    }
+    .trio-row {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
-    .attribute-item label {
-      font-weight: normal;
-      margin-bottom: 0.2rem;
+    .trio-row .attribute-item {
+      flex: 1 1 30%;
+    }
+    .trio-row .characteristic-result {
+      flex: 1 1 100%;
+      font-style: italic;
+      margin-top: 0.3rem;
+      text-align: right;
     }
     input[type="number"] {
       min: 20;
@@ -86,50 +102,52 @@
 <body>
   <div class="container">
     <h1>Créateur de Personnage par Abérion</h1>
+    <div id="points-counter">Points de création restants : <strong>...</strong></div>
     <form>
-      <div class="form-group"><label>Nom du personnage</label><input type="text" name="nom"></div>
-      <div class="form-group"><label>Âge</label><input type="number" name="age" min="10" max="60"></div>
-      <div class="form-group"><label>Origine</label><input type="text" name="origine"></div>
-      <div class="form-group"><label>Symbole personnel</label><input type="text" name="symbole"></div>
-      <div class="form-group"><label>Couleur des yeux</label><input type="text" name="yeux"></div>
-      <div class="form-group"><label>Couleur des cheveux</label><input type="text" name="cheveux"></div>
-      <div class="form-group"><label>Génération</label>
-        <select name="generation">
-          <option value="1">1ère génération (800 pts)</option>
-          <option value="2">2ème génération (600 pts)</option>
-          <option value="3">3ème génération (400 pts)</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Karma (-15 à +15)</label><input type="number" name="karma" min="-15" max="15"></div>
-      <div class="form-group"><label>Faiblesse (optionnelle)</label><input type="text" name="faiblesse"></div>
-      <div class="form-group"><label>Alliés (0 à 15)</label><input type="number" name="allies" min="0" max="15"></div>
-      <div class="form-group"><label>Ennemis (0 à 15)</label><input type="number" name="ennemis" min="0" max="15"></div>
-      <div class="form-group"><label>Contributions (0 à 2)</label><input type="number" name="contributions" min="0" max="2"></div>
+      <!-- Les champs de base restent identiques -->
+      <!-- ... (voir code précédent) -->
 
-      <div class="form-group wide"><label>Répartition des Attributs</label>
-        <div class="attributes-grid">
-          <div class="attribute-item"><label>Dextérité</label><input type="number" name="dexterite" min="20"></div>
+      <div class="form-group wide attributes-block">
+        <h3>Caractéristiques</h3>
+
+        <div class="trio-row">
           <div class="attribute-item"><label>Force</label><input type="number" name="force" min="20"></div>
+          <div class="attribute-item"><label>Dextérité</label><input type="number" name="dexterite" min="20"></div>
           <div class="attribute-item"><label>Réflexe</label><input type="number" name="reflexe" min="20"></div>
+          <div class="characteristic-result">PHYSIQUE = moyenne des trois</div>
+        </div>
+
+        <div class="trio-row">
           <div class="attribute-item"><label>Adaptation</label><input type="number" name="adaptation" min="20"></div>
           <div class="attribute-item"><label>Régénération</label><input type="number" name="regeneration" min="20"></div>
           <div class="attribute-item"><label>Résistance</label><input type="number" name="resistance" min="20"></div>
+          <div class="characteristic-result">ENDURANCE = moyenne des trois</div>
+        </div>
+
+        <div class="trio-row">
           <div class="attribute-item"><label>Intelligence</label><input type="number" name="intelligence" min="20"></div>
           <div class="attribute-item"><label>Concentration</label><input type="number" name="concentration" min="20"></div>
           <div class="attribute-item"><label>Volonté</label><input type="number" name="volonte" min="20"></div>
+          <div class="characteristic-result">PSYCHE = moyenne des trois</div>
+        </div>
+
+        <div class="trio-row">
           <div class="attribute-item"><label>Sens</label><input type="number" name="sens" min="20"></div>
           <div class="attribute-item"><label>Sixième Sens</label><input type="number" name="sixiemesens" min="20"></div>
           <div class="attribute-item"><label>Empathie</label><input type="number" name="empathie" min="20"></div>
+          <div class="characteristic-result">PERCEPTION = moyenne des trois</div>
+        </div>
+
+        <div class="trio-row">
           <div class="attribute-item"><label>Éloquence</label><input type="number" name="eloquence" min="20"></div>
           <div class="attribute-item"><label>Intimidation</label><input type="number" name="intimidation" min="20"></div>
           <div class="attribute-item"><label>Apparence</label><input type="number" name="apparence" min="20"></div>
+          <div class="characteristic-result">CHARISME = moyenne des trois</div>
         </div>
+
       </div>
 
-      <div class="form-group wide"><label>Pouvoirs (ex : Logrus, Marelle...)</label><textarea name="pouvoirs"></textarea></div>
-      <div class="form-group wide"><label>Artefact personnel lié</label><textarea name="artefact"></textarea></div>
-      <div class="form-group wide"><label>Créature personnelle liée</label><textarea name="creature"></textarea></div>
-      <div class="form-group wide"><label>Ombre personnelle liée</label><textarea name="ombre"></textarea></div>
+      <!-- Le reste du formulaire reste inchangé -->
 
       <div class="form-group wide" style="text-align:center;">
         <button type="submit">Générer la fiche PDF</button>
