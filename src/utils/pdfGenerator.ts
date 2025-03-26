@@ -1,5 +1,5 @@
 
-import jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { CharacterData, attributeGroups, calculateDerivedStats, calculateTotalPointsSpent } from './calculations';
 
@@ -42,7 +42,7 @@ export const generateCharacterPDF = (character: CharacterData) => {
   // Caractéristiques dérivées
   const derivedStats = calculateDerivedStats(character);
   
-  doc.text("Caractéristiques principales", 20, doc.autoTable.previous.finalY + 10);
+  doc.text("Caractéristiques principales", 20, doc.previousAutoTable.finalY + 10);
   
   const derivedStatsTable = [
     ['PHYSIQUE', 'ENDURANCE', 'PSYCHE', 'PERCEPTION', 'CHARISME'],
@@ -56,7 +56,7 @@ export const generateCharacterPDF = (character: CharacterData) => {
   ];
   
   autoTable(doc, {
-    startY: doc.autoTable.previous.finalY + 15,
+    startY: doc.previousAutoTable.finalY + 15,
     head: [derivedStatsTable[0]],
     body: [derivedStatsTable[1]],
     theme: 'grid',
@@ -72,7 +72,7 @@ export const generateCharacterPDF = (character: CharacterData) => {
   });
   
   // Attributs détaillés
-  doc.text("Attributs détaillés", 20, doc.autoTable.previous.finalY + 10);
+  doc.text("Attributs détaillés", 20, doc.previousAutoTable.finalY + 10);
   
   const attributeTables = Object.entries(attributeGroups).map(([group, attrs]) => {
     return [
@@ -81,14 +81,14 @@ export const generateCharacterPDF = (character: CharacterData) => {
     ];
   });
   
-  let col1Y = doc.autoTable.previous.finalY + 15;
+  let col1Y = doc.previousAutoTable.finalY + 15;
   let col2Y = col1Y;
   let colWidth = 90;
   
   // Première colonne (3 premiers groupes)
   for (let i = 0; i < 3; i++) {
     autoTable(doc, {
-      startY: i === 0 ? col1Y : doc.autoTable.previous.finalY + 5,
+      startY: i === 0 ? col1Y : doc.previousAutoTable.finalY + 5,
       head: [attributeTables[i][0]],
       body: attributeTables[i].slice(1),
       theme: 'grid',
@@ -102,14 +102,14 @@ export const generateCharacterPDF = (character: CharacterData) => {
     });
     
     if (i === 2) {
-      col1Y = doc.autoTable.previous.finalY;
+      col1Y = doc.previousAutoTable.finalY;
     }
   }
   
   // Deuxième colonne (2 derniers groupes)
   for (let i = 3; i < 5; i++) {
     autoTable(doc, {
-      startY: i === 3 ? col2Y : doc.autoTable.previous.finalY + 5,
+      startY: i === 3 ? col2Y : doc.previousAutoTable.finalY + 5,
       head: [attributeTables[i][0]],
       body: attributeTables[i].slice(1),
       theme: 'grid',
@@ -124,7 +124,7 @@ export const generateCharacterPDF = (character: CharacterData) => {
   }
   
   // Détermine le Y le plus bas entre les deux colonnes
-  const lowestY = Math.max(col1Y, doc.autoTable.previous.finalY);
+  const lowestY = Math.max(col1Y, doc.previousAutoTable.finalY);
   
   // Pouvoirs
   doc.text("Pouvoirs", 20, lowestY + 10);
@@ -151,12 +151,12 @@ export const generateCharacterPDF = (character: CharacterData) => {
   });
   
   // Nouvelle page si nécessaire
-  if (doc.autoTable.previous.finalY > 250) {
+  if (doc.previousAutoTable.finalY > 250) {
     doc.addPage();
   }
   
   // Artefacts, créatures et ombres
-  const nextY = doc.autoTable.previous.finalY + 10;
+  const nextY = doc.previousAutoTable.finalY + 10;
   doc.text("Objets et entités personnelles", 20, nextY);
   
   // Artefacts
@@ -184,7 +184,7 @@ export const generateCharacterPDF = (character: CharacterData) => {
   
   // Créatures
   autoTable(doc, {
-    startY: doc.autoTable.previous.finalY + 5,
+    startY: doc.previousAutoTable.finalY + 5,
     head: [['Créature', 'Type', 'Lien']],
     body: character.creatures.length ? character.creatures.map(c => [c.name, c.type, c.bond]) : [['Aucune créature', '', '']],
     theme: 'grid',
@@ -197,7 +197,7 @@ export const generateCharacterPDF = (character: CharacterData) => {
   
   // Ombres
   autoTable(doc, {
-    startY: doc.autoTable.previous.finalY + 5,
+    startY: doc.previousAutoTable.finalY + 5,
     head: [['Ombre', 'Description', 'Statut']],
     body: character.shadows.length ? character.shadows.map(s => [s.name, s.description, s.status]) : [['Aucune ombre', '', '']],
     theme: 'grid',
@@ -212,7 +212,7 @@ export const generateCharacterPDF = (character: CharacterData) => {
   const points = calculateTotalPointsSpent(character);
   
   autoTable(doc, {
-    startY: doc.autoTable.previous.finalY + 10,
+    startY: doc.previousAutoTable.finalY + 10,
     head: [['Récapitulatif des points']],
     body: [
       [`Points de base (${character.generation}ème génération): ${points.basePoints}`],

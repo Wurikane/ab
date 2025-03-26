@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { CharacterData, allAttributes, availablePowers, calculateTotalPointsSpent } from '../utils/calculations';
@@ -148,12 +149,7 @@ const CharacterSheet: React.FC = () => {
   }, [character]);
 
   return (
-    <div className="parchment-container max-w-4xl mx-auto">
-      <div className="text-center mb-6 animate-fade-in">
-        <h1 className="text-4xl font-cursive text-medieval-brown mb-2">Créateur d'Abérion</h1>
-        <p className="text-medieval-ink/70 italic">Créez votre personnage pour le jeu de rôle Ambre</p>
-      </div>
-      
+    <div className="parchment-container">      
       <div className="mb-6">
         <nav className="overflow-x-auto">
           <div className="flex space-x-1 min-w-max p-1 border-b border-medieval-brown/30">
