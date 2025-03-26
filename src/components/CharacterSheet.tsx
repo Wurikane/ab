@@ -53,8 +53,8 @@ const CharacterSheet: React.FC = () => {
     shadows: []
   });
 
-  // Afficher l'onglet basic par défaut
-  const [activeTab, setActiveTab] = useState('basic');
+  // Afficher l'onglet attributes par défaut au lieu de basic
+  const [activeTab, setActiveTab] = useState('attributes');
 
   // Gestionnaire pour les changements de valeurs
   const handleChange = (field: string, value: any) => {
