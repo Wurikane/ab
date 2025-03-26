@@ -57,6 +57,17 @@
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 1rem;
     }
+    .attribute-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .attribute-item label {
+      font-weight: normal;
+      margin-bottom: 0.2rem;
+    }
+    input[type="number"] {
+      min: 20;
+    }
     button {
       margin-top: 2rem;
       background-color: #b89b5d;
@@ -97,21 +108,21 @@
 
       <div class="form-group wide"><label>Répartition des Attributs</label>
         <div class="attributes-grid">
-          <input type="number" placeholder="Dextérité">
-          <input type="number" placeholder="Force">
-          <input type="number" placeholder="Réflexe">
-          <input type="number" placeholder="Adaptation">
-          <input type="number" placeholder="Régénération">
-          <input type="number" placeholder="Résistance">
-          <input type="number" placeholder="Intelligence">
-          <input type="number" placeholder="Concentration">
-          <input type="number" placeholder="Volonté">
-          <input type="number" placeholder="Sens">
-          <input type="number" placeholder="Sixième Sens">
-          <input type="number" placeholder="Empathie">
-          <input type="number" placeholder="Éloquence">
-          <input type="number" placeholder="Intimidation">
-          <input type="number" placeholder="Apparence">
+          <div class="attribute-item"><label>Dextérité</label><input type="number" name="dexterite" min="20"></div>
+          <div class="attribute-item"><label>Force</label><input type="number" name="force" min="20"></div>
+          <div class="attribute-item"><label>Réflexe</label><input type="number" name="reflexe" min="20"></div>
+          <div class="attribute-item"><label>Adaptation</label><input type="number" name="adaptation" min="20"></div>
+          <div class="attribute-item"><label>Régénération</label><input type="number" name="regeneration" min="20"></div>
+          <div class="attribute-item"><label>Résistance</label><input type="number" name="resistance" min="20"></div>
+          <div class="attribute-item"><label>Intelligence</label><input type="number" name="intelligence" min="20"></div>
+          <div class="attribute-item"><label>Concentration</label><input type="number" name="concentration" min="20"></div>
+          <div class="attribute-item"><label>Volonté</label><input type="number" name="volonte" min="20"></div>
+          <div class="attribute-item"><label>Sens</label><input type="number" name="sens" min="20"></div>
+          <div class="attribute-item"><label>Sixième Sens</label><input type="number" name="sixiemesens" min="20"></div>
+          <div class="attribute-item"><label>Empathie</label><input type="number" name="empathie" min="20"></div>
+          <div class="attribute-item"><label>Éloquence</label><input type="number" name="eloquence" min="20"></div>
+          <div class="attribute-item"><label>Intimidation</label><input type="number" name="intimidation" min="20"></div>
+          <div class="attribute-item"><label>Apparence</label><input type="number" name="apparence" min="20"></div>
         </div>
       </div>
 
