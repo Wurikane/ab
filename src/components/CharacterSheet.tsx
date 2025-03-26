@@ -53,7 +53,7 @@ const CharacterSheet: React.FC = () => {
     shadows: []
   });
 
-  // État pour suivre l'onglet actif
+  // Afficher l'onglet basic par défaut
   const [activeTab, setActiveTab] = useState('basic');
 
   // Gestionnaire pour les changements de valeurs
@@ -148,6 +148,7 @@ const CharacterSheet: React.FC = () => {
     }
   }, [character]);
 
+  // Affichage du composant
   return (
     <div className="parchment-container">      
       <div className="mb-6">
