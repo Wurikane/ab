@@ -1,92 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 39 38% 87%;
+    --foreground: 35 16% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 39 38% 92%;
+    --card-foreground: 35 16% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 39 38% 92%;
+    --popover-foreground: 35 16% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 25 48% 28%;
+    --primary-foreground: 39 38% 92%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 42 52% 57%;
+    --secondary-foreground: 35 16% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 39 18% 85%;
+    --muted-foreground: 35 10% 35%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 18% 40%;
+    --accent-foreground: 39 38% 92%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 28% 75%;
+    --input: 35 28% 75%;
+    --ring: 42 52% 57%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -96,6 +47,115 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-parchment text-medieval-ink font-serif;
+    background-image: url('/parchment-bg.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3 {
+    @apply font-medieval;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer components {
+  .parchment-container {
+    @apply relative p-8 rounded-lg shadow-md overflow-hidden;
+    background-image: url('/parchment-bg.jpg');
+    background-size: cover;
+    border: 1px solid #d8c6a0;
+    box-shadow: 0 4px 20px rgba(107, 66, 38, 0.15);
+  }
+
+  .medieval-border {
+    @apply relative p-8 border-4 border-medieval-gold/60 rounded-lg;
+    position: relative;
+  }
+  
+  .medieval-border::before, .medieval-border::after {
+    content: "";
+    @apply absolute w-12 h-12 bg-contain bg-no-repeat;
+  }
+  
+  .medieval-border::before {
+    top: -6px;
+    left: -6px;
+    background-image: url('/corner-decoration.png');
+  }
+  
+  .medieval-border::after {
+    bottom: -6px;
+    right: -6px;
+    background-image: url('/corner-decoration.png');
+    transform: rotate(180deg);
+  }
+
+  .input-medieval {
+    @apply bg-parchment-light border-medieval-brown/50 rounded-md px-3 py-2 focus:border-medieval-gold focus:ring-1 focus:ring-medieval-gold transition-all duration-200;
+  }
+
+  .btn-medieval {
+    @apply rounded-md px-4 py-2 bg-medieval-brown text-parchment-light hover:bg-medieval-red transition-colors duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .section-title {
+    @apply flex items-center mb-4 font-medieval text-xl text-medieval-brown;
+  }
+  
+  .section-title::before, .section-title::after {
+    content: "";
+    @apply h-px bg-medieval-brown/70 flex-grow;
+  }
+  
+  .section-title::before {
+    @apply mr-4;
+  }
+  
+  .section-title::after {
+    @apply ml-4;
+  }
+
+  .scroll-container {
+    @apply my-6 opacity-0;
+    animation: scroll-unroll 0.6s ease-out forwards;
+  }
+
+  .fancy-divider {
+    @apply w-full h-4 my-6 bg-contain bg-no-repeat bg-center;
+    background-image: url('/divider-decoration.png');
+  }
+
+  .quill-appear {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quill-appear::after {
+    content: '';
+    @apply absolute top-0 left-0 h-full w-0 bg-medieval-gold/10;
+    animation: quill-write 1.5s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+
+  .attribute-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4;
+  }
+
+  .attribute-box {
+    @apply border border-medieval-brown/40 rounded p-3 bg-parchment-light/70;
+  }
+
+  .tooltip {
+    @apply relative inline-block;
+  }
+
+  .tooltip .tooltip-text {
+    @apply invisible absolute z-10 p-2 bg-medieval-brown text-parchment-light text-sm rounded-md shadow-lg w-56 
+           bottom-full left-1/2 -translate-x-1/2 mb-1 opacity-0 transition-opacity duration-200;
+  }
+
+  .tooltip:hover .tooltip-text {
+    @apply visible opacity-100;
   }
 }
