@@ -217,5 +217,77 @@
       </div>
     </form>
   </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const inputs = document.querySelectorAll("input[type='number']");
+    const pointsDisplay = document.querySelector("#points-counter strong");
+    const genSelect = document.querySelector("select[name='generation']");
+    const characteristicOutputs = document.querySelectorAll(".characteristic-result");
+
+    const karmaInput = document.querySelector("input[name='karma']");
+    const faiblesseInput = document.querySelector("input[name='faiblesse']");
+    const alliesInput = document.querySelector("input[name='allies']");
+    const ennemisInput = document.querySelector("input[name='ennemis']");
+    const contributionsInput = document.querySelector("input[name='contributions']");
+
+    function getGenerationPoints() {
+      const val = genSelect.value;
+      if (val === "1") return 800;
+      if (val === "2") return 600;
+      return 400;
+    }
+
+    function calcAverage(vals) {
+      const numbers = vals.map(id => parseInt(document.querySelector(`[name='${id}']`).value || 20));
+      const sum = numbers.reduce((a, b) => a + b, 0);
+      return Math.floor(sum / numbers.length);
+    }
+
+    function update() {
+      let total = 0;
+      inputs.forEach(input => {
+        if (!input.name.match(/karma|allies|ennemis|contributions/)) {
+          const val = parseInt(input.value || 20);
+          total += val - 20;
+        }
+      });
+
+      let bonus = 0;
+      const karma = parseInt(karmaInput.value || 0);
+      if (karma < 0) bonus += Math.abs(karma) * 2;
+      if (karma > 0) bonus -= karma * 2;
+
+      const allies = parseInt(alliesInput.value || 0);
+      const ennemis = parseInt(ennemisInput.value || 0);
+      bonus -= allies;
+      bonus += ennemis;
+
+      const contributions = parseInt(contributionsInput.value || 0);
+      bonus += contributions * 15;
+
+      const faiblesse = faiblesseInput.value.trim();
+      if (faiblesse.length > 0) bonus += 15;
+
+      const remaining = getGenerationPoints() - total + bonus;
+      pointsDisplay.textContent = remaining;
+
+      const characteristics = [
+        { name: "PHYSIQUE", ids: ["force", "dexterite", "reflexe"] },
+        { name: "ENDURANCE", ids: ["adaptation", "regeneration", "resistance"] },
+        { name: "PSYCHE", ids: ["intelligence", "concentration", "volonte"] },
+        { name: "PERCEPTION", ids: ["sens", "sixiemesens", "empathie"] },
+        { name: "CHARISME", ids: ["eloquence", "intimidation", "apparence"] },
+      ];
+
+      characteristicOutputs.forEach((el, idx) => {
+        const score = calcAverage(characteristics[idx].ids);
+        el.textContent = `${characteristics[idx].name} = ${score}`;
+      });
+    }
+
+    document.querySelectorAll("input, select").forEach(el => el.addEventListener("input", update));
+    update();
+  });
+</script>
 </body>
 </html>
