@@ -98,15 +98,40 @@
       background-color: #a88e5d;
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const inputs = document.querySelectorAll("input[type='number']");
+      const pointsDisplay = document.querySelector("#points-counter strong");
+      function updatePoints() {
+        let total = 0;
+        inputs.forEach(input => {
+          const val = parseInt(input.value || 20);
+          total += val - 20;
+        });
+        const generation = 600; // Valeur fixe par défaut (à ajuster plus tard dynamiquement)
+        const remaining = generation - total;
+        pointsDisplay.textContent = remaining;
+      }
+      inputs.forEach(input => {
+        input.addEventListener("input", updatePoints);
+      });
+      updatePoints();
+    });
+  </script>
 </head>
 <body>
   <div class="container">
     <h1>Créateur de Personnage par Abérion</h1>
     <div id="points-counter">Points de création restants : <strong>...</strong></div>
     <form>
-      <!-- Les champs de base restent identiques -->
-      <!-- ... (voir code précédent) -->
+      <div class="form-group"><label>Nom du personnage</label><input type="text" name="nom"></div>
+      <div class="form-group"><label>Âge</label><input type="number" name="age" min="10" max="60"></div>
+      <div class="form-group"><label>Origine</label><input type="text" name="origine"></div>
+      <div class="form-group"><label>Symbole personnel</label><input type="text" name="symbole"></div>
+      <div class="form-group"><label>Couleur des yeux</label><input type="text" name="yeux"></div>
+      <div class="form-group"><label>Couleur des cheveux</label><input type="text" name="cheveux"></div>
 
+      <!-- CARACTÉRISTIQUES ICI (inchangées) -->
       <div class="form-group wide attributes-block">
         <h3>Caractéristiques</h3>
 
@@ -146,8 +171,6 @@
         </div>
 
       </div>
-
-      <!-- Le reste du formulaire reste inchangé -->
 
       <div class="form-group wide" style="text-align:center;">
         <button type="submit">Générer la fiche PDF</button>
