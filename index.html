@@ -102,20 +102,50 @@
     document.addEventListener("DOMContentLoaded", () => {
       const inputs = document.querySelectorAll("input[type='number']");
       const pointsDisplay = document.querySelector("#points-counter strong");
-      function updatePoints() {
+      const genSelect = document.querySelector("select[name='generation']");
+      const characteristicOutputs = document.querySelectorAll(".characteristic-result");
+
+      function getGenerationPoints() {
+        const val = genSelect.value;
+        if (val === "1") return 800;
+        if (val === "2") return 600;
+        return 400;
+      }
+
+      function calcAverage(vals) {
+        const numbers = vals.map(id => parseInt(document.querySelector(`[name='${id}']`).value || 20));
+        const sum = numbers.reduce((a, b) => a + b, 0);
+        return Math.floor(sum / numbers.length);
+      }
+
+      function update() {
+        // Points de création
         let total = 0;
         inputs.forEach(input => {
           const val = parseInt(input.value || 20);
           total += val - 20;
         });
-        const generation = 600; // Valeur fixe par défaut (à ajuster plus tard dynamiquement)
-        const remaining = generation - total;
+        const remaining = getGenerationPoints() - total;
         pointsDisplay.textContent = remaining;
+
+        // Calculs de caractéristiques
+        const characteristics = [
+          { name: "PHYSIQUE", ids: ["force", "dexterite", "reflexe"] },
+          { name: "ENDURANCE", ids: ["adaptation", "regeneration", "resistance"] },
+          { name: "PSYCHE", ids: ["intelligence", "concentration", "volonte"] },
+          { name: "PERCEPTION", ids: ["sens", "sixiemesens", "empathie"] },
+          { name: "CHARISME", ids: ["eloquence", "intimidation", "apparence"] },
+        ];
+
+        characteristicOutputs.forEach((el, idx) => {
+          const score = calcAverage(characteristics[idx].ids);
+          el.textContent = `${characteristics[idx].name} = ${score}`;
+        });
       }
-      inputs.forEach(input => {
-        input.addEventListener("input", updatePoints);
-      });
-      updatePoints();
+
+      inputs.forEach(input => input.addEventListener("input", update));
+      genSelect.addEventListener("change", update);
+      update();
     });
   </script>
 </head>
@@ -130,46 +160,47 @@
       <div class="form-group"><label>Symbole personnel</label><input type="text" name="symbole"></div>
       <div class="form-group"><label>Couleur des yeux</label><input type="text" name="yeux"></div>
       <div class="form-group"><label>Couleur des cheveux</label><input type="text" name="cheveux"></div>
+      <div class="form-group wide"><label>Génération</label>
+        <select name="generation">
+          <option value="1">1ère génération (800 pts)</option>
+          <option value="2" selected>2ème génération (600 pts)</option>
+          <option value="3">3ème génération (400 pts)</option>
+        </select>
+      </div>
 
-      <!-- CARACTÉRISTIQUES ICI (inchangées) -->
+      <!-- Caractéristiques (inchangé, toujours visibles) -->
       <div class="form-group wide attributes-block">
         <h3>Caractéristiques</h3>
-
         <div class="trio-row">
           <div class="attribute-item"><label>Force</label><input type="number" name="force" min="20"></div>
           <div class="attribute-item"><label>Dextérité</label><input type="number" name="dexterite" min="20"></div>
           <div class="attribute-item"><label>Réflexe</label><input type="number" name="reflexe" min="20"></div>
-          <div class="characteristic-result">PHYSIQUE = moyenne des trois</div>
+          <div class="characteristic-result">PHYSIQUE = ...</div>
         </div>
-
         <div class="trio-row">
           <div class="attribute-item"><label>Adaptation</label><input type="number" name="adaptation" min="20"></div>
           <div class="attribute-item"><label>Régénération</label><input type="number" name="regeneration" min="20"></div>
           <div class="attribute-item"><label>Résistance</label><input type="number" name="resistance" min="20"></div>
-          <div class="characteristic-result">ENDURANCE = moyenne des trois</div>
+          <div class="characteristic-result">ENDURANCE = ...</div>
         </div>
-
         <div class="trio-row">
           <div class="attribute-item"><label>Intelligence</label><input type="number" name="intelligence" min="20"></div>
           <div class="attribute-item"><label>Concentration</label><input type="number" name="concentration" min="20"></div>
           <div class="attribute-item"><label>Volonté</label><input type="number" name="volonte" min="20"></div>
-          <div class="characteristic-result">PSYCHE = moyenne des trois</div>
+          <div class="characteristic-result">PSYCHE = ...</div>
         </div>
-
         <div class="trio-row">
           <div class="attribute-item"><label>Sens</label><input type="number" name="sens" min="20"></div>
           <div class="attribute-item"><label>Sixième Sens</label><input type="number" name="sixiemesens" min="20"></div>
           <div class="attribute-item"><label>Empathie</label><input type="number" name="empathie" min="20"></div>
-          <div class="characteristic-result">PERCEPTION = moyenne des trois</div>
+          <div class="characteristic-result">PERCEPTION = ...</div>
         </div>
-
         <div class="trio-row">
           <div class="attribute-item"><label>Éloquence</label><input type="number" name="eloquence" min="20"></div>
           <div class="attribute-item"><label>Intimidation</label><input type="number" name="intimidation" min="20"></div>
           <div class="attribute-item"><label>Apparence</label><input type="number" name="apparence" min="20"></div>
-          <div class="characteristic-result">CHARISME = moyenne des trois</div>
+          <div class="characteristic-result">CHARISME = ...</div>
         </div>
-
       </div>
 
       <div class="form-group wide" style="text-align:center;">
