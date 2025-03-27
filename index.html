@@ -223,11 +223,11 @@
       </div>
     </div>
   </div>
-<script>
+  <script>
   function showTab(tabId) {
     document.querySelectorAll('.tab-section').forEach(tab => tab.style.display = 'none');
-    document.getElementById('tab-' + tabId).style.display = 'block';
     document.querySelectorAll('ul li').forEach(li => li.classList.remove('tab-active'));
+    document.getElementById('tab-' + tabId).style.display = 'block';
     const activeLi = document.querySelector('a[href="#tab-' + tabId + '"]').parentElement;
     activeLi.classList.add('tab-active');
   }
@@ -235,7 +235,6 @@
     showTab('personnage');
   });
 </script>
-
   </script>
     <div style="text-align:center; margin-top: 2rem;">
       <button onclick="generatePDF()">📜 Exporter la fiche PDF</button>
