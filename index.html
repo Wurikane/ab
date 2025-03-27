@@ -134,7 +134,28 @@
       </select>
     </div>
     <div id="points-counter">Points de création restants : <strong>...</strong></div>
+    
+    <div id="tab-personnage" class="tab-section">
+        <!-- Le contenu de la fiche personnage sera déplacé ici -->
+      </div>
+      <div id="tab-competences" class="tab-section" style="display:none">
+        <p>Ici viendront les compétences...</p>
+      </div>
+      <div id="tab-liens" class="tab-section" style="display:none">
+        <p>Ici viendront les artefacts, compagnons, et ombres personnelles...</p>
+      </div>
+      <div id="tab-pouvoirs" class="tab-section" style="display:none">
+        <p>Ici viendront les pouvoirs...</p>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-section').forEach(tab => tab.style.display = 'none');
+      document.getElementById('tab-' + tabId).style.display = 'block';
+    }
+  </script>
     <div class="form-row">
       <div class="attribute-item">
         <label for="nom">Nom du personnage</label>
