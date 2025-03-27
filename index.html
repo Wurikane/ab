@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cardo&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-       body {
+    body {
       font-family: 'Cardo', serif;
       background: url('https://www.transparenttextures.com/patterns/old-map.png');
       color: #2e1f0f;
@@ -28,7 +28,7 @@
       font-family: 'Cinzel', serif;
       font-size: 2.8rem;
       text-align: center;
-      color: #4b2d13;
+      color: #2b3b4d;
     }
     h2 {
       font-family: 'Fondamento', cursive;
@@ -72,27 +72,6 @@
     .attribute-item.wide {
       flex: 1 1 100%;
     }
-    .trio-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background: #f3efe6;
-      border: 1px solid #c1ab88;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .trio-row .attribute-item {
-      flex: 1 1 30%;
-    }
-    .characteristic-result {
-      flex: 1 1 100%;
-      text-align: right;
-      font-style: italic;
-      font-weight: bold;
-      color: #5a3c21;
-      margin-top: 0.5rem;
-    }
     #points-counter {
       text-align: center;
       font-weight: bold;
@@ -100,44 +79,18 @@
       margin: 1rem 0;
       color: #5a3921;
     }
-    button {
-      background-color: #8d6e41;
-      color: white;
-      padding: 0.8rem 1.6rem;
-      font-family: 'Cinzel', serif;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #6d522e;
-    }
-    img {
-      display: block;
-      margin: auto;
-      height: 100px;
-    }
-      tab-active {
-      background-color: #c49c87;
+    .tab-active {
+      background-color: #6a4b2e33;
       border-radius: 4px;
       padding: 0.2rem 0.6rem;
     }
   </style>
 </head>
 <body>
-  <div class="container" id="fiche-container">
+  <div class="container">
     <h1>Créateur de Personnage par Abérion</h1>
-    <h2 style="text-align:center; font-family: 'Fondamento', cursive; font-size: 1.5rem; margin-top: -0.5rem; color: #c49c87;">Les Fanzines d'Ambre</h2>
-    <div class="form-group wide" style="text-align:center; margin-bottom: 1rem;">
-      <label for="generation">Choix de la génération :</label>
-      <select name="generation" id="generation" style="width: auto; min-width: 200px; display: inline-block;">
-        <option value="1">1ère génération (800 pts)</option>
-        <option value="2" selected>2ème génération (600 pts)</option>
-        <option value="3">3ème génération (400 pts)</option>
-      </select>
-    </div>
-    <div id="points-counter">Points de création restants : <strong>...</strong></div>
-     <div>
+    <h2>Les Fanzines d'Ambre</h2>
+
     <ul style="display: flex; list-style: none; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #8b6d45;">
       <li style="margin-right: 1rem;"><a href="#tab-personnage" onclick="showTab('personnage')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; color: #1a2530;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ersonnage</a></li>
       <li style="margin-right: 1rem;"><a href="#tab-caracteristiques" onclick="showTab('caracteristiques')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #1a2530, #2b3b4d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>C</span>aractéristiques</a></li>
@@ -145,101 +98,60 @@
       <li style="margin-right: 1rem;"><a href="#tab-liens" onclick="showTab('liens')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #243443, #3b536c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>L</span>iens de Sang</a></li>
       <li><a href="#tab-pouvoirs" onclick="showTab('pouvoirs')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; color: #3c4a5d;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ouvoirs</a></li>
     </ul>
-     <div id="tab-personnage" class="tab-section">
-  <div class="form-row">
-    <div class="attribute-item">
-      <label for="nom">Nom du personnage</label>
-      <input type="text" name="nom" id="nom">
+
+    <div id="tab-personnage" class="tab-section">
+      <div class="form-row">
+        <div class="attribute-item"><label for="nom">Nom du personnage</label><input type="text" id="nom"></div>
+        <div class="attribute-item"><label for="origine">Origine</label><input type="text" id="origine"></div>
+        <div class="attribute-item"><label for="pere">Nom du père</label><input type="text" id="pere"></div>
+        <div class="attribute-item"><label for="mere">Nom de la mère</label><input type="text" id="mere"></div>
+        <div class="attribute-item"><label for="taille">Taille (cm)</label><input type="number" id="taille" min="50" max="300"></div>
+        <div class="attribute-item"><label for="poids">Poids (kg)</label><input type="number" id="poids" min="20" max="300"></div>
+        <div class="attribute-item"><label for="age">Âge</label><input type="number" id="age" min="10" max="100"></div>
+        <div class="attribute-item"><label for="symbole">Symbole personnel</label><input type="text" id="symbole"></div>
+        <div class="attribute-item"><label for="yeux">Couleur des yeux</label><input type="text" id="yeux"></div>
+        <div class="attribute-item"><label for="cheveux">Couleur des cheveux</label><input type="text" id="cheveux"></div>
+        <div class="attribute-item"><label for="generation">Choix de la génération</label>
+          <select id="generation">
+            <option value="1">1ère génération (800 pts)</option>
+            <option value="2" selected>2ème génération (600 pts)</option>
+            <option value="3">3ème génération (400 pts)</option>
+          </select>
+        </div>
+        <div class="attribute-item"><label for="karma">Karma (-15 à +15)</label><input type="number" id="karma" min="-15" max="15"></div>
+        <div class="attribute-item"><label for="pointfaible">Point Faible (optionnelle)</label><input type="text" id="pointfaible"></div>
+        <div class="attribute-item"><label for="allies">Alliés (0 à 15)</label><input type="number" id="allies" min="0" max="15"></div>
+        <div class="attribute-item"><label for="ennemis">Ennemis (0 à 15)</label><input type="number" id="ennemis" min="0" max="15"></div>
+        <div class="attribute-item"><label for="contributions">Contributions (0 à 2)</label><input type="number" id="contributions" min="0" max="2"></div>
+      </div>
+      <div id="points-counter">Points de création restants : <strong>...</strong></div>
     </div>
-        <div class="attribute-item">
-      <label for="origine">Origine</label>
-      <input type="text" name="origine" id="origine">
+
+    <div id="tab-caracteristiques" class="tab-section" style="display:none">
+      <p>Ici viendront les sous-caractéristiques et les scores calculés...</p>
     </div>
-    <div class="attribute-item">
-      <label for="pere">Nom du père</label>
-      <input type="text" name="pere" id="pere">
+    <div id="tab-competences" class="tab-section" style="display:none">
+      <p>Ici viendront les compétences...</p>
     </div>
-    <div class="attribute-item">
-      <label for="mere">Nom de la mère</label>
-      <input type="text" name="mere" id="mere">
+    <div id="tab-liens" class="tab-section" style="display:none">
+      <p>Ici viendront les artefacts, compagnons, et ombres personnelles...</p>
     </div>
-    <div class="attribute-item">
-      <label for="taille">Taille (cm)</label>
-      <input type="number" name="taille" id="taille" min="50" max="300">
-    </div>
-    <div class="attribute-item">
-      <label for="poids">Poids (kg)</label>
-      <input type="number" name="poids" id="poids" min="20" max="300">
-    </div>
-        <div class="attribute-item">
-      <label for="age">Âge</label>
-      <input type="number" name="age" id="age" min="10" max="100">
-    </div>
-    <div class="attribute-item">
-      <label for="symbole">Symbole personnel</label>
-      <input type="text" name="symbole" id="symbole">
-    </div>
-    <div class="attribute-item">
-      <label for="yeux">Couleur des yeux</label>
-      <input type="text" name="yeux" id="yeux">
-    </div>
-    <div class="attribute-item">
-      <label for="cheveux">Couleur des cheveux</label>
-      <input type="text" name="cheveux" id="cheveux">
-    </div>
-    <div class="attribute-item">
-      <label for="karma">Karma (-15 à +15)</label>
-      <input type="number" name="karma" id="karma" min="-15" max="15">
-    </div>
-    <div class="attribute-item">
-      <label for="faiblesse">Point Faible (optionnelle)</label>
-      <input type="text" name="faiblesse" id="faiblesse">
-    </div>
-    <div class="attribute-item">
-      <label for="allies">Alliés (0 à 15)</label>
-      <input type="number" name="allies" id="allies" min="0" max="15">
-    </div>
-    <div class="attribute-item">
-      <label for="ennemis">Ennemis (0 à 15)</label>
-      <input type="number" name="ennemis" id="ennemis" min="0" max="15">
-    </div>
-    <div class="attribute-item">
-      <label for="contributions">Contributions (0 à 2)</label>
-      <input type="number" name="contributions" id="contributions" min="0" max="2">
+    <div id="tab-pouvoirs" class="tab-section" style="display:none">
+      <p>Ici viendront les pouvoirs...</p>
     </div>
   </div>
-      </div>
-       <div id="tab-caracteristiques" class="tab-section" style="display:none">
-  <p>Ici viendront les sous-caractéristiques et les caractéristiques...</p>
-          </div>
-      <div id="tab-competences" class="tab-section" style="display:none">
-        <p>Ici viendront les compétences...</p>
-      </div>
-      <div id="tab-liens" class="tab-section" style="display:none">
-        <p>Ici viendront les artefacts, compagnons, et ombres personnelles...</p>
-      </div>
-      <div id="tab-pouvoirs" class="tab-section" style="display:none">
-        <p>Ici viendront les pouvoirs...</p>
-      </div>
-    </div>
-  </div>
+
   <script>
-  function showTab(tabId) {
-    document.querySelectorAll('.tab-section').forEach(tab => tab.style.display = 'none');
-    document.querySelectorAll('ul li').forEach(li => li.classList.remove('tab-active'));
-    document.getElementById('tab-' + tabId).style.display = 'block';
-    const activeLi = document.querySelector('a[href="#tab-' + tabId + '"]').parentElement;
-    activeLi.classList.add('tab-active');
-  }
-  window.addEventListener('DOMContentLoaded', () => {
-    showTab('personnage');
-  });
-</script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-section').forEach(tab => tab.style.display = 'none');
+      document.querySelectorAll('ul li').forEach(li => li.classList.remove('tab-active'));
+      document.getElementById('tab-' + tabId).style.display = 'block';
+      const activeLi = document.querySelector('a[href="#tab-' + tabId + '"]').parentElement;
+      activeLi.classList.add('tab-active');
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      showTab('personnage');
+    });
   </script>
-    <div style="text-align:center; margin-top: 2rem;">
-      <button onclick="generatePDF()">📜 Exporter la fiche PDF</button>
-    </div>
-  </div>
- </div>
 </body>
 </html>
