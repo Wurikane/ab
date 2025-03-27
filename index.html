@@ -51,7 +51,6 @@
       border-radius: 4px;
       max-width: 240px;
     }
-
     input[type="number"] {
       max-width: 80px;
       width: auto;
@@ -126,7 +125,6 @@
   </style>
 </head>
 <body>
-
   <div class="container" id="fiche-container">
     <h1>Créateur de Personnage par Abérion</h1>
     <h2 style="text-align:center; font-family: 'Fondamento', cursive; font-size: 1.5rem; margin-top: -0.5rem; color: #c49c87;">Les Fanzines d'Ambre</h2>
@@ -139,16 +137,14 @@
       </select>
     </div>
     <div id="points-counter">Points de création restants : <strong>...</strong></div>
-    
      <div>
-<ul style="display: flex; list-style: none; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #8b6d45;">
-  <li style="margin-right: 1rem;"><a href="#tab-personnage" onclick="showTab('personnage')" style="text-decoration: none; font-weight: bold; color: #5f7593; font-family: 'Cinzel', serif; font-size: 1.1rem;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ersonnage</a></li>
-  <li style="margin-right: 1rem;"><a href="#tab-caracteristiques" onclick="showTab('caracteristiques')" style="text-decoration: none; font-weight: bold; color: #2f3a49; font-family: 'Cinzel', serif; font-size: 1.1rem;"><span style='font-size: 1.4rem; font-weight: bold;'>C</span>aractéristiques</a></li>
-  <li style="margin-right: 1rem;"><a href="#tab-competences" onclick="showTab('competences')" style="text-decoration: none; font-weight: bold; color: #5f7593; font-family: 'Cinzel', serif; font-size: 1.1rem;"><span style='font-size: 1.4rem; font-weight: bold;'>C</span>ompétences</a></li>
-  <li style="margin-right: 1rem;"><a href="#tab-liens" onclick="showTab('liens')" style="text-decoration: none; font-weight: bold; color: #2f3a49; font-family: 'Cinzel', serif; font-size: 1.1rem;"><span style='font-size: 1.4rem; font-weight: bold;'>L</span>iens de Sang</a></li>
-  <li><a href="#tab-pouvoirs" onclick="showTab('pouvoirs')" style="text-decoration: none; font-weight: bold; color: #5f7593; font-family: 'Cinzel', serif; font-size: 1.1rem;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ouvoirs</a></li>
-</ul>
-
+    <ul style="display: flex; list-style: none; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #8b6d45;">
+      <li style="margin-right: 1rem;"><a href="#tab-personnage" onclick="showTab('personnage')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; color: #1a2530;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ersonnage</a></li>
+      <li style="margin-right: 1rem;"><a href="#tab-caracteristiques" onclick="showTab('caracteristiques')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #1a2530, #2b3b4d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>C</span>aractéristiques</a></li>
+      <li style="margin-right: 1rem;"><a href="#tab-competences" onclick="showTab('competences')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #1f2c3b, #33465a); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>C</span>ompétences</a></li>
+      <li style="margin-right: 1rem;"><a href="#tab-liens" onclick="showTab('liens')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #243443, #3b536c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>L</span>iens de Sang</a></li>
+      <li><a href="#tab-pouvoirs" onclick="showTab('pouvoirs')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; color: #3c4a5d;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ouvoirs</a></li>
+    </ul>
      <div id="tab-personnage" class="tab-section">
   <div class="form-row">
     <div class="attribute-item">
