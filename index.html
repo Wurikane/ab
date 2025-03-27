@@ -90,7 +90,20 @@
   <div class="container">
     <h1>Créateur de Personnage par Abérion</h1>
     <h2>Les Fanzines d'Ambre</h2>
-
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
+      <div>
+        <label for="generation" style="font-weight: bold; font-family: 'Cinzel', serif; font-size: 0.9rem; color: #3b2916;">Choix de la génération</label><br>
+        <select id="generation">
+          <option value="1">1ère génération (800 pts)</option>
+          <option value="2" selected>2ème génération (600 pts)</option>
+          <option value="3">3ème génération (400 pts)</option>
+        </select>
+      </div>
+      <div id="points-counter" style="text-align: right; font-weight: bold; font-size: 1.2rem; color: #5a3921;">
+        Points de création restants : <strong>...</strong>
+      </div>
+    </div>
+    
     <ul style="display: flex; list-style: none; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #8b6d45;">
       <li style="margin-right: 1rem;"><a href="#tab-personnage" onclick="showTab('personnage')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; color: #1a2530;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ersonnage</a></li>
       <li style="margin-right: 1rem;"><a href="#tab-caracteristiques" onclick="showTab('caracteristiques')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #1a2530, #2b3b4d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>C</span>aractéristiques</a></li>
@@ -111,20 +124,12 @@
         <div class="attribute-item"><label for="symbole">Symbole personnel</label><input type="text" id="symbole"></div>
         <div class="attribute-item"><label for="yeux">Couleur des yeux</label><input type="text" id="yeux"></div>
         <div class="attribute-item"><label for="cheveux">Couleur des cheveux</label><input type="text" id="cheveux"></div>
-        <div class="attribute-item"><label for="generation">Choix de la génération</label>
-          <select id="generation">
-            <option value="1">1ère génération (800 pts)</option>
-            <option value="2" selected>2ème génération (600 pts)</option>
-            <option value="3">3ème génération (400 pts)</option>
-          </select>
-        </div>
         <div class="attribute-item"><label for="karma">Karma (-15 à +15)</label><input type="number" id="karma" min="-15" max="15"></div>
         <div class="attribute-item"><label for="pointfaible">Point Faible (optionnelle)</label><input type="text" id="pointfaible"></div>
         <div class="attribute-item"><label for="allies">Alliés (0 à 15)</label><input type="number" id="allies" min="0" max="15"></div>
         <div class="attribute-item"><label for="ennemis">Ennemis (0 à 15)</label><input type="number" id="ennemis" min="0" max="15"></div>
         <div class="attribute-item"><label for="contributions">Contributions (0 à 2)</label><input type="number" id="contributions" min="0" max="2"></div>
       </div>
-      <div id="points-counter">Points de création restants : <strong>...</strong></div>
     </div>
 
     <div id="tab-caracteristiques" class="tab-section" style="display:none">
