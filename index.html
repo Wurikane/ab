@@ -138,6 +138,7 @@
      <div>
       <ul style="display: flex; list-style: none; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #8b6d45;">
         <li style="margin-right: 1rem;"><a href="#tab-personnage" onclick="showTab('personnage')" style="text-decoration: none; font-weight: bold; color: #4b2d13;">🧝‍♂️ Personnage</a></li>
+         <li style="margin-right: 1rem;"><a href="#tab-caracteristiques" onclick="showTab('caracteristiques')" style="text-decoration: none; font-weight: bold; color: #4b2d13;">📊 Caractéristiques</a></li>
         <li style="margin-right: 1rem;"><a href="#tab-competences" onclick="showTab('competences')" style="text-decoration: none; font-weight: bold; color: #4b2d13;">📜 Compétences</a></li>
         <li style="margin-right: 1rem;"><a href="#tab-liens" onclick="showTab('liens')" style="text-decoration: none; font-weight: bold; color: #4b2d13;">🔗 Liens de Sang</a></li>
         <li><a href="#tab-pouvoirs" onclick="showTab('pouvoirs')" style="text-decoration: none; font-weight: bold; color: #4b2d13;">✨ Pouvoirs</a></li>
@@ -198,8 +199,10 @@
       <input type="number" name="contributions" id="contributions" min="0" max="2">
     </div>
   </div>
-  <div id="points-counter">Points de création restants : <strong>...</strong></div>
       </div>
+       <div id="tab-caracteristiques" class="tab-section" style="display:none">
+  <p>Ici viendront les sous-caractéristiques et les caractéristiques...</p>
+          </div>
       <div id="tab-competences" class="tab-section" style="display:none">
         <p>Ici viendront les compétences...</p>
       </div>
