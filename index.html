@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cardo&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-    body {
+       body {
       font-family: 'Cardo', serif;
       background: url('https://www.transparenttextures.com/patterns/old-map.png');
       color: #2e1f0f;
@@ -49,7 +49,12 @@
       background-color: #fefdf8;
       padding: 0.5rem;
       border-radius: 4px;
-      width: 100%;
+      max-width: 240px;
+    }
+
+    input[type="number"] {
+      max-width: 80px;
+      width: auto;
     }
     select {
       width: auto;
