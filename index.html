@@ -59,7 +59,28 @@
       font-size: 1.2rem;
       margin-bottom: 1rem;
     }
-  </style>
+      .trio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background-color: #f0ece3;
+      border-radius: 6px;
+      border: 1px solid #cbb78e;
+    }
+    .trio-row .attribute-item {
+      flex: 1 1 30%;
+    }
+    .trio-row .characteristic-result {
+      flex: 1 1 100%;
+      font-style: italic;
+      margin-top: 0.3rem;
+      text-align: right;
+      font-weight: bold;
+      color: #4a321a;
+    }
+</style>
 </head>
 <body>
   <div class="container" id="fiche-container">
@@ -127,8 +148,8 @@
         <textarea name="artefact" id="artefact"></textarea>
       </div>
     </div>
-  <div class="form-row">
-      <div class="form-group">
+  <div class="trio-row">
+      <div class="attribute-item">
         <label for="force">Force</label>
         <input type="number" name="force" id="force" value="20">
       </div>
@@ -140,11 +161,11 @@
         <label for="reflexe">Réflexes</label>
         <input type="number" name="reflexe" id="reflexe" value="20">
       </div>
-      <div class="form-group wide">
-        <div class="characteristic-result">PHYSIQUE = ...</div>
-      </div>
+            <div class="characteristic-result">PHYSIQUE = ...</div>
+    </div>
 
-      <div class="form-group">
+      <div class="trio-row">
+      <div class="attribute-item">
         <label for="adaptation">Adaptation</label>
         <input type="number" name="adaptation" id="adaptation" value="20">
       </div>
@@ -160,7 +181,8 @@
         <div class="characteristic-result">ENDURANCE = ...</div>
       </div>
 
-      <div class="form-group">
+      <div class="trio-row">
+      <div class="attribute-item">
         <label for="intelligence">Intelligence</label>
         <input type="number" name="intelligence" id="intelligence" value="20">
       </div>
@@ -176,7 +198,8 @@
         <div class="characteristic-result">PSYCHE = ...</div>
       </div>
 
-      <div class="form-group">
+      <div class="trio-row">
+      <div class="attribute-item">
         <label for="sens">Sens</label>
         <input type="number" name="sens" id="sens" value="20">
       </div>
@@ -192,7 +215,8 @@
         <div class="characteristic-result">PERCEPTION = ...</div>
       </div>
 
-      <div class="form-group">
+      <div class="trio-row">
+      <div class="attribute-item">
         <label for="eloquence">Éloquence</label>
         <input type="number" name="eloquence" id="eloquence" value="20">
       </div>
