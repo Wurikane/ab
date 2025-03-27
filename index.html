@@ -34,14 +34,14 @@
     #points-counter {
       text-align: center;
       font-size: 1.3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       color: #5a3921;
       font-weight: bold;
     }
     form {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 2rem;
     }
     .form-group {
       flex: 1 1 45%;
@@ -58,15 +58,29 @@
       color: #3c2814;
     }
     input, select, textarea {
-      width: 100%;
-      padding: 0.6rem;
+      padding: 0.4rem;
       border: 1px solid #a88e5d;
       border-radius: 4px;
       background-color: #fefdf8;
       font-family: 'Cardo', serif;
     }
+    input[type="text"] {
+      max-width: 300px;
+      width: 100%;
+      max-length: 20;
+    }
+    input[type="number"] {
+      width: 80px;
+      max: 999;
+    }
     textarea {
       min-height: 80px;
+      width: 100%;
+    }
+    .section-separator {
+      flex: 1 1 100%;
+      border-top: 2px dashed #b49a6d;
+      margin: 2rem 0;
     }
     .attributes-block {
       margin-top: 2rem;
@@ -81,7 +95,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background-color: #f0ece3;
+      border-radius: 6px;
+      border: 1px solid #cbb78e;
     }
     .trio-row .attribute-item {
       flex: 1 1 30%;
@@ -93,9 +111,6 @@
       text-align: right;
       font-weight: bold;
       color: #4a321a;
-    }
-    input[type="number"] {
-      min: 20;
     }
     button {
       margin-top: 2rem;
