@@ -1,38 +1,41 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Créateur de Personnage par Abérion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cardo&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #f2e3c6 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-      font-family: 'Garamond', serif;
-      color: #3e2f1c;
+      background: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+      font-family: 'Cardo', serif;
+      color: #2c1c0c;
       margin: 0;
       padding: 2rem;
     }
     .container {
       max-width: 1000px;
       margin: auto;
-      background-color: #fff8e6;
-      border: 2px solid #b7a268;
-      border-radius: 8px;
+      background-color: #f8f5f0;
+      border: 3px double #6a4e2a;
+      border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
     h1 {
       text-align: center;
-      font-size: 2.5rem;
-      border-bottom: 1px solid #a88e5d;
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      border-bottom: 2px solid #6a4e2a;
       padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+      color: #4b2e15;
     }
     #points-counter {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 1rem;
-      color: #5c432a;
+      color: #5a3921;
+      font-weight: bold;
     }
     form {
       display: flex;
@@ -41,7 +44,7 @@
     }
     .form-group {
       flex: 1 1 45%;
-      min-width: 200px;
+      min-width: 250px;
     }
     .form-group.wide {
       flex: 1 1 100%;
@@ -50,13 +53,19 @@
       font-weight: bold;
       display: block;
       margin-bottom: 0.3rem;
+      font-family: 'Cinzel', serif;
+      color: #3c2814;
     }
     input, select, textarea {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.6rem;
       border: 1px solid #a88e5d;
       border-radius: 4px;
-      background-color: #fffdf5;
+      background-color: #fefdf8;
+      font-family: 'Cardo', serif;
+    }
+    textarea {
+      min-height: 80px;
     }
     .attributes-block {
       margin-top: 2rem;
@@ -64,7 +73,8 @@
     .attributes-block h3 {
       margin-bottom: 0.5rem;
       color: #4d3923;
-      border-bottom: 1px solid #ccb383;
+      border-bottom: 1px dashed #ccb383;
+      font-family: 'Cinzel', serif;
     }
     .trio-row {
       display: flex;
@@ -80,22 +90,25 @@
       font-style: italic;
       margin-top: 0.3rem;
       text-align: right;
+      font-weight: bold;
+      color: #4a321a;
     }
     input[type="number"] {
       min: 20;
     }
     button {
       margin-top: 2rem;
-      background-color: #b89b5d;
+      background-color: #8d6e41;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       border: none;
       font-size: 1.2rem;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
+      font-family: 'Cinzel', serif;
     }
     button:hover {
-      background-color: #a88e5d;
+      background-color: #6d522e;
     }
   </style>
   <script>
