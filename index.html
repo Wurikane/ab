@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <body>
+  <div class="container" id="fiche-container">
+    <div style="text-align:center; margin-bottom: 1.5rem;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Heraldic_unicorn_white.svg/512px-Heraldic_unicorn_white.svg.png" alt="Blason Licorne" style="height: 100px;">
+    </div>
+    <h1>Créateur de Personnage par Abérion</h1>
+    <div id="points-counter">Points de création restants : <strong>...</strong></div>
+    <!-- Formulaire ici (inchangé) -->
+    <div style="text-align:center">
+      <button onclick="generatePDF()">📜 Exporter la fiche PDF</button>
+    </div>
+  </div>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Créateur de Personnage par Abérion</title>
@@ -268,7 +280,70 @@
       </div>
     </form>
   </div>
+  
   <script>
+    async function generatePDF() {
+      const {{ jsPDF }} = window.jspdf;
+      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+
+      // PAGE 1 : fiche perso
+      const fiche = document.querySelector("#fiche-container");
+      await doc.html(fiche, {
+        x: 20,
+        y: 20,
+        width: 555,
+        windowWidth: 1000,
+        html2canvas: { scale: 0.6 },
+        callback: function (doc) {
+          // PAGE 2 : pouvoirs choisis uniquement
+          const pouvoirs = document.querySelector("textarea[name='pouvoirs']")?.value || "(Aucun pouvoir indiqué)";
+          doc.addPage();
+          doc.setFont("times", "bold");
+          doc.setFontSize(20);
+          doc.text("Pouvoirs Choisis", 40, 60);
+
+          doc.setFont("times", "normal");
+          doc.setFontSize(12);
+          const lignes = doc.splitTextToSize(pouvoirs, 520);
+          doc.text(lignes, 40, 100);
+
+          doc.save("Fiche_Amberion.pdf");
+        }
+      });
+    }
+  </script>
+  <script>
+    async function generatePDF() {
+      const {{ jsPDF }} = window.jspdf;
+      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+
+      // PAGE 1 : fiche perso
+      const fiche = document.querySelector("#fiche-container");
+      await doc.html(fiche, {
+        x: 20,
+        y: 20,
+        width: 555,
+        windowWidth: 1000,
+        html2canvas: { scale: 0.6 },
+        callback: function (doc) {
+          // PAGE 2 : pouvoirs choisis uniquement
+          const pouvoirs = document.querySelector("textarea[name='pouvoirs']")?.value || "(Aucun pouvoir indiqué)";
+          doc.addPage();
+          doc.setFont("times", "bold");
+          doc.setFontSize(20);
+          doc.text("Pouvoirs Choisis", 40, 60);
+
+          doc.setFont("times", "normal");
+          doc.setFontSize(12);
+          const lignes = doc.splitTextToSize(pouvoirs, 520);
+          doc.text(lignes, 40, 100);
+
+          doc.save("Fiche_Amberion.pdf");
+        }
+      });
+    }
+  </script>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const inputs = document.querySelectorAll("input[type='number']");
     const pointsDisplay = document.querySelector("#points-counter strong");
@@ -297,7 +372,7 @@
     function update() {
       let total = 0;
       inputs.forEach(input => {
-        if (!input.name.match(/karma|allies|ennemis|contributions/)) {
+        if (!input.name.match(/karma|allies|ennemis|contributions|age/)) {
           const val = parseInt(input.value || 20);
           total += val - 20;
         }
@@ -340,37 +415,5 @@
     update();
   });
 </script>
-  
-  <script>
-    async function generatePDF() {
-      const {{ jsPDF }} = window.jspdf;
-      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-
-      // PAGE 1 : fiche perso
-      const fiche = document.querySelector("#fiche-container");
-      await doc.html(fiche, {
-        x: 20,
-        y: 20,
-        width: 555,
-        windowWidth: 1000,
-        html2canvas: { scale: 0.6 },
-        callback: function (doc) {
-          // PAGE 2 : pouvoirs choisis uniquement
-          const pouvoirs = document.querySelector("textarea[name='pouvoirs']")?.value || "(Aucun pouvoir indiqué)";
-          doc.addPage();
-          doc.setFont("times", "bold");
-          doc.setFontSize(20);
-          doc.text("Pouvoirs Choisis", 40, 60);
-
-          doc.setFont("times", "normal");
-          doc.setFontSize(12);
-          const lignes = doc.splitTextToSize(pouvoirs, 520);
-          doc.text(lignes, 40, 100);
-
-          doc.save("Fiche_Amberion.pdf");
-        }
-      });
-    }
-  </script>
 </body>
 </html>
