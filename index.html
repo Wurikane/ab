@@ -102,7 +102,6 @@
       <div id="points-counter" style="text-align: right; font-weight: bold; font-size: 1.2rem; color: #5a3921;">Points de création restants : <strong>...</strong>
       </div>
     </div>
-    
     <ul style="display: flex; list-style: none; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #8b6d45;">
       <li style="margin-right: 1rem;"><a href="#tab-personnage" onclick="showTab('personnage')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; color: #1a2530;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ersonnage</a></li>
       <li style="margin-right: 1rem;"><a href="#tab-caracteristiques" onclick="showTab('caracteristiques')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #1a2530, #2b3b4d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>C</span>aractéristiques</a></li>
@@ -110,7 +109,6 @@
       <li style="margin-right: 1rem;"><a href="#tab-liens" onclick="showTab('liens')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; background: linear-gradient(to right, #243443, #3b536c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style='font-size: 1.4rem; font-weight: bold;'>L</span>iens de Sang</a></li>
       <li><a href="#tab-pouvoirs" onclick="showTab('pouvoirs')" style="text-decoration: none; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1.1rem; color: #3c4a5d;"><span style='font-size: 1.4rem; font-weight: bold;'>P</span>ouvoirs</a></li>
     </ul>
-
     <div id="tab-personnage" class="tab-section">
       <div class="form-row">
         <div class="attribute-item"><label for="nom">Nom du personnage </label><input type="text" id="nom"></div>
@@ -130,9 +128,7 @@
         <div class="attribute-item"><label for="contributions">Contributions (0 à 2) </label><input type="number" id="contributions" min="0" max="2"></div>
       </div>
     </div>
-
   <div id="tab-caracteristiques" class="tab-section" style="display:none">
-
   <div style="background-color:#f4efe9; border:1px solid #c6ad8f; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
     <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 0.5rem;">
   <h3 style="font-family: 'Cinzel', serif; color: #3b2916; display: inline-block; margin: 0;">PHYSIQUE</h3>
@@ -144,10 +140,8 @@
       <div class="attribute-item"><label for="dexterite">Dextérité</label><input type="number" id="dexterite" min="20" max="999"></div>
       <div class="attribute-item"><label for="force">Force</label><input type="number" id="force" min="20" max="999"></div>
       <div class="attribute-item"><label for="reflexes">Réflexes</label><input type="number" id="reflexes" min="20" max="999"></div>
-      
     </div>
   </div>
-
   <div style="background-color:#f4efe9; border:1px solid #c6ad8f; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
     <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 0.5rem;">
   <h3 style="font-family: 'Cinzel', serif; color: #3b2916; display: inline-block; margin: 0;">ENDURANCE</h3>
@@ -159,10 +153,8 @@
       <div class="attribute-item"><label for="adaptation">Adaptation</label><input type="number" id="adaptation" min="20" max="999"></div>
       <div class="attribute-item"><label for="regeneration">Régénération</label><input type="number" id="regeneration" min="20" max="999"></div>
       <div class="attribute-item"><label for="resistance">Résistance</label><input type="number" id="resistance" min="20" max="999"></div>
-      
     </div>
   </div>
-
   <div style="background-color:#f4efe9; border:1px solid #c6ad8f; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
     <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 0.5rem;">
   <h3 style="font-family: 'Cinzel', serif; color: #3b2916; display: inline-block; margin: 0;">PSYCHÉ</h3>
@@ -174,10 +166,8 @@
       <div class="attribute-item"><label for="intelligence">Intelligence</label><input type="number" id="intelligence" min="20" max="999"></div>
       <div class="attribute-item"><label for="concentration">Concentration</label><input type="number" id="concentration" min="20" max="999"></div>
       <div class="attribute-item"><label for="volonte">Volonté</label><input type="number" id="volonte" min="20" max="999"></div>
-      
     </div>
   </div>
-
   <div style="background-color:#f4efe9; border:1px solid #c6ad8f; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
     <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 0.5rem;">
   <h3 style="font-family: 'Cinzel', serif; color: #3b2916; display: inline-block; margin: 0;">PERCEPTION</h3>
@@ -189,10 +179,8 @@
       <div class="attribute-item"><label for="sens">Sens</label><input type="number" id="sens" min="20" max="999"></div>
       <div class="attribute-item"><label for="sixieme">Sixième Sens</label><input type="number" id="sixieme" min="20" max="999"></div>
       <div class="attribute-item"><label for="empathie">Empathie</label><input type="number" id="empathie" min="20" max="999"></div>
-      
     </div>
   </div>
-
   <div style="background-color:#f4efe9; border:1px solid #c6ad8f; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
     <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 0.5rem;">
   <h3 style="font-family: 'Cinzel', serif; color: #3b2916; display: inline-block; margin: 0;">CHARISME</h3>
@@ -206,7 +194,6 @@
       <div class="attribute-item"><label for="apparence">Apparence</label><input type="number" id="apparence" min="20" max="999"></div>
     </div>
   </div>
-
     <div id="tab-competences" class="tab-section" style="display:none">
         <div class="form-row">
     <div class="attribute-item wide">
@@ -223,7 +210,6 @@
       <div class="attribute-item"><label for="furtivite">Furtivité</label><input type="number" id="furtivite" min="0" max="100"></div>
     </div>
   </div>
-
   <div style="background-color:#f9f5ee; border:1px solid #ccb89c; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
   <h4 style="font-family: 'Cinzel', serif; color: #3b2916; margin-bottom: 0.5rem;">ENDURANCE</h4>
   <div class="form-row">
@@ -232,7 +218,6 @@
     <div class="attribute-item"><label for="survie">Survie</label><input type="number" id="survie" min="0" max="100"></div>
   </div>
 </div>
-
 <div style="background-color:#f9f5ee; border:1px solid #ccb89c; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
   <h4 style="font-family: 'Cinzel', serif; color: #3b2916; margin-bottom: 0.5rem;">PSYCHÉ</h4>
   <div class="form-row">
@@ -241,7 +226,6 @@
     <div class="attribute-item"><label for="strategie">Stratégie</label><input type="number" id="strategie" min="0" max="100"></div>
   </div>
 </div>
-
 <div style="background-color:#f9f5ee; border:1px solid #ccb89c; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
   <h4 style="font-family: 'Cinzel', serif; color: #3b2916; margin-bottom: 0.5rem;">PERCEPTION</h4>
   <div class="form-row">
@@ -250,7 +234,6 @@
     <div class="attribute-item"><label for="vigilance">Vigilance</label><input type="number" id="vigilance" min="0" max="100"></div>
   </div>
 </div>
-
 <div style="background-color:#f9f5ee; border:1px solid #ccb89c; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
   <h4 style="font-family: 'Cinzel', serif; color: #3b2916; margin-bottom: 0.5rem;">CHARISME</h4>
   <div class="form-row">
@@ -260,9 +243,7 @@
   </div>
 </div>
   </div>
-    
     <div id="tab-liens" class="tab-section" style="display:none">
-      
  <div style="background-color:#f4efe9; border:1px solid #c6ad8f; border-radius: 8px; padding: 1rem; margin-bottom: 2rem;">
     <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 0.5rem;">
   <h3 style="font-family: 'Cinzel', serif; color: #3b2916; display: inline-block; margin: 0;">PHYSIQUE</h3>
@@ -274,16 +255,13 @@
       <div class="attribute-item"><label for="dexterite">Dextérité</label><input type="number" id="dexterite" min="20" max="999"></div>
       <div class="attribute-item"><label for="force">Force</label><input type="number" id="force" min="20" max="999"></div>
       <div class="attribute-item"><label for="reflexes">Réflexes</label><input type="number" id="reflexes" min="20" max="999"></div>
-      
     </div>
   </div>
-      
     </div>
     <div id="tab-pouvoirs" class="tab-section" style="display:none">
       <p>Ici viendront les pouvoirs...</p>
     </div>
   </div>
-
   <script>
     function showTab(tabId) {
       document.querySelectorAll('.tab-section').forEach(tab => tab.style.display = 'none');
